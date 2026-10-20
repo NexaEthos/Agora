@@ -101,7 +101,13 @@ choices, and it reasons on your own plan, so the workspace's credits stay for th
 workspace. Every connection it opens is outbound: no public address, no port forwarding, no inbound firewall rule.
 
 - **Your own models.** An OpenAI-compatible proxy in front of a local model server (vLLM, Ollama, LM Studio,
-  llama.cpp); the workspace then uses that model like any other. A desktop app pairs the computer from the browser.
+  llama.cpp); the workspace then uses that model like any other. A desktop app pairs a computer from the browser,
+  and a GPU server links from its shell with one command, no desktop needed; the workspace chooses on its Nexa
+  Bridge page which model a connection serves.
+- **Your GPUs as one pool.** One bridge serves a model from several model servers on your network: a request goes
+  only to a server whose context can hold it, a conversation stays on the server that already has it cached, the
+  idlest server takes the rest, and a server that stops answering is set aside until it recovers. The workspace sees
+  every server's health and load live.
 - **Physical endpoints (preview).** A lab board or a ROS 2 robot pairs with the workspace on its own credential,
   approved by an owner or admin, and sends observations over HTTPS: telemetry summaries, state changes,
   diagnostics and alerts. Observation only: the device takes no commands. Today's adapters read an Arduino Q board's
@@ -127,7 +133,7 @@ flowchart LR
   people["People<br/>in the web app"] --> agora
   assistant["Your AI assistant<br/>Claude, Codex, Copilot, ..."] -->|MCP| agora
   subgraph bridge["Nexa Bridge, on your machines"]
-    models["Your models<br/>LM Studio, Ollama, llama.cpp, vLLM"]
+    models["Your models<br/>LM Studio, Ollama, llama.cpp, vLLM<br/>one server or a pool of them"]
     devices["Physical endpoints<br/>Arduino UNO Q and VENTUNO Q, ROS 2 robots"]
   end
   models -->|outbound tunnel| agora
