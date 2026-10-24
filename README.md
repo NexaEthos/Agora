@@ -151,6 +151,11 @@ flowchart LR
 
 There is nothing to clone or install: everything happens in the web app and in your assistant.
 
+## Community
+
+Questions, feedback and news about Nexa Agora and Nexa Bridge: join the
+[NexaEthos Agora Discord](https://discord.gg/k2cFcM2Kc).
+
 ## Licence and security
 
 The guides and examples are released under the [MIT licence](LICENSE). Report a security problem as described in
