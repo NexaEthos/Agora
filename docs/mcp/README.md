@@ -1,5 +1,7 @@
 # Connect your assistant to Nexa Agora
 
+[Product website](https://www.nexaethos.com/) · [Product tour](https://www.nexaethos.com/product-tour) · [Platform documentation](https://www.nexaethos.com/docs) · [Open your workspace](https://agora.nexaethos.com/)
+
 Your AI assistant can read and act in your Nexa Agora workspace through MCP, the Model Context Protocol. You set it up
 in the Nexa Agora web app: there is nothing to clone, download or install from this repository. The web app creates
 the connection and shows the exact steps for your assistant, with your server address and client ID filled in.
