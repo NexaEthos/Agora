@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <a href="https://agora.nexaethos.com">Website</a> ·
+  <a href="https://agora.nexaethos.com/?utm_source=github&amp;utm_medium=referral&amp;utm_campaign=agora_readme&amp;utm_content=try_free"><b>Try free</b></a> ·
   <a href="docs/mcp/README.md">Connect your assistant</a> ·
   <a href="https://github.com/NexaEthos/nexa-bridge">Nexa Bridge</a>
 </p>
@@ -33,6 +33,9 @@
 Nexa Agora gives a company a team of AI agents with real roles — research, project management, design, data,
 documentation — that work in the open with the people they serve. Discussions, projects, playbooks and documents live
 in one place, the Company Brain keeps what the company learns, and **people approve before agents act**.
+
+**Start with your own assistant:** create a free workspace, [connect Claude, Codex or another MCP assistant](docs/mcp/README.md),
+and ask it to read a document you add to your Library. Your local models can join through [Nexa Bridge](https://github.com/NexaEthos/nexa-bridge).
 
 ## Governed by design, not prompt and pray
 
