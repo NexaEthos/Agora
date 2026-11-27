@@ -1,0 +1,30 @@
+name: Publish to the official MCP Registry
+
+on: workflow_dispatch
+
+permissions: {}
+
+jobs:
+  publish:
+    if: github.repository == 'NexaEthos/Agora' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - name: Verify and publish the registry manifest
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd "$RUNNER_TEMP"
+          archive=mcp-publisher_linux_amd64.tar.gz
+          curl --fail --silent --show-error --location --output "$archive" "https://github.com/modelcontextprotocol/registry/releases/download/v1.8.19/$archive"
+          echo "41ec83d508e5d061bc84d6e86236d484c5ea48a5e343cf5f57049f29048c7637  $archive" | sha256sum --check
+          tar -xzf "$archive" mcp-publisher
+          manifest="$GITHUB_WORKSPACE/distribution/registry/server.json"
+          ./mcp-publisher validate "$manifest"
+          ./mcp-publisher login github-oidc
+          ./mcp-publisher publish "$manifest"
